@@ -36,7 +36,7 @@ $router->get('/', function () use ($router) {
 
 
 
-reg_routes('hr-report', \App\Http\Controllers\Api\HrReportController::class,
+reg_routes('production-report', \App\Http\Controllers\Api\ReportController::class,
     $router,
     [],
     [],

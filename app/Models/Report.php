@@ -37,19 +37,31 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string|null $date_4
  * @property string|null $report_day
  * @property int $company_id
- * @method static \Illuminate\Database\Eloquent\Builder|HrReport whereCompanyId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|HrReport whereDate1($value)
- * @method static \Illuminate\Database\Eloquent\Builder|HrReport whereDate2($value)
- * @method static \Illuminate\Database\Eloquent\Builder|HrReport whereDate3($value)
- * @method static \Illuminate\Database\Eloquent\Builder|HrReport whereDate4($value)
- * @method static \Illuminate\Database\Eloquent\Builder|HrReport whereReportDay($value)
- * @method static \Illuminate\Database\Eloquent\Builder|HrReport whereReportTypeId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|HrReport whereText1($value)
- * @method static \Illuminate\Database\Eloquent\Builder|HrReport whereText2($value)
- * @method static \Illuminate\Database\Eloquent\Builder|HrReport whereText3($value)
- * @method static \Illuminate\Database\Eloquent\Builder|HrReport whereText4($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Report whereCompanyId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Report whereDate1($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Report whereDate2($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Report whereDate3($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Report whereDate4($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Report whereReportDay($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Report whereReportTypeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Report whereText1($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Report whereText2($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Report whereText3($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Report whereText4($value)
+ * @property int $user_id
+ * @property string|null $name_list
+ * @property int $production
+ * @property int $production_defect
+ * @property int $control
+ * @property int $control_defect
+ * @method static \Illuminate\Database\Eloquent\Builder|Report whereControl($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Report whereControlDefect($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Report whereNameList($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Report whereProduction($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Report whereProductionDefect($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Report whereUserId($value)
  */
-class HrReport extends Model
+class Report extends Model
 {
     use HasFactory;
     use SoftDeletes;
@@ -63,17 +75,14 @@ class HrReport extends Model
     protected $dates = ['deleted_at'];
 
     protected $fillable=[
+        "user_id",
         "company_id",
-        "report_type_id",
-        "text_1",
-        "text_2",
-        "text_3",
-        "text_4",
-        "date_1",
-        "date_2",
-        "date_3",
-        "date_4",
-        "report_day"
+        "report_day",
+        "name_list",
+        "production",
+        "production_defect",
+        "control",
+        "control_defect",
     ];
     protected $hidden=[
         "created_at",
@@ -84,7 +93,7 @@ class HrReport extends Model
     public function validate($inputs,$create=true) {
 
         return \Validator::make($inputs, [
-            "report_type_id"=>'integer',
+            "user_id"=>'integer',
         ]);
     }
 }

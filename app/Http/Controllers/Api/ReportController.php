@@ -3,17 +3,17 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\HrReport;
+use App\Models\Report;
 use Illuminate\Http\Request;
 
-class HrReportController extends Controller
+class ReportController extends Controller
 {
     /**
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      * @OA\Get (
-     *     path="/api/hr-report",
-     *     tags={"HR Report"},
+     *     path="/api/production-report",
+     *     tags={"Production report"},
      *     @OA\Response(
      *          response=200,
      *          description="",
@@ -22,15 +22,15 @@ class HrReportController extends Controller
      */
     public function index()
     {
-        return response(HrReport::get(), 200);
+        return response(Report::get(), 200);
     }
 
     /**
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      * @OA\Get (
-     *     tags={"HR Report"},
-     *     path="/api/hr-report/get-by-report-day/{report_day}/{company_id}",
+     *     tags={"Production report"},
+     *     path="/api/production-report/get-by-report-day/{report_day}/{company_id}",
      *     @OA\Parameter( name="report_day", in="path", required=false, description="Получить все отчеты по дате", @OA\Schema( type="date" ) ),
      *     @OA\Parameter( name="company_id", in="path", required=false, description="", @OA\Schema( type="integer" ) ),
      *
@@ -39,13 +39,13 @@ class HrReportController extends Controller
      *          description="",
      *      @OA\JsonContent(
      *     type="object",
-     * )
-     *      ),
-     * )
+     *                      )
+     *                  ),
+     *      )
      */
     public function getByReportDay($report_day, $company_id)
     {
-        return HrReport::select()
+        return Report::select()
             ->whereReportDay($report_day)
 //            ->whereCompanyId($company_id)
             ->get();
@@ -67,24 +67,22 @@ class HrReportController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      * @OA\Post(
-     *     path="/api/hr-report",
-     *     tags={"HR Report"},
+     *     path="/api/production-report",
+     *     tags={"Production report"},
      *     @OA\RequestBody(
-     *    request="Create HR Report",
-     *    description="Create HR Report Fields",
+     *    request="Create Production report",
+     *    description="Create Production report Fields",
      *    @OA\JsonContent(
      *        type="object",
      *        required={""},
-     *          @OA\Property(property="text_1",description="Текст 1", type="string", example="Тест"),
-     *          @OA\Property(property="text_2",description="Текст 2", type="string", example="Тест"),
-     *          @OA\Property(property="text_3",description="Текст 3", type="string", example="Тест"),
-     *          @OA\Property(property="text_4",description="Текст 4", type="string", example="Тест"),
-     *          @OA\Property(property="date_1",description="2022-04-01", type="date", example="2022-04-01"),
-     *          @OA\Property(property="date_2",description="2022-04-01", type="date", example="2022-04-01"),
-     *          @OA\Property(property="date_3",description="2022-04-01", type="date", example="2022-04-01"),
-     *          @OA\Property(property="date_4",description="2022-04-01", type="date", example="2022-04-01"),
+     *          @OA\Property(property="user_id",description="1", type="integer", example="1"),
+     *          @OA\Property(property="company_id",description="1", type="integer", example="1"),
+     *          @OA\Property(property="name_list",description="Текст", type="string", example="Тест"),
+     *          @OA\Property(property="production",description="1", type="integer", example="1"),
+     *          @OA\Property(property="production_defect",description="1", type="integer", example="1"),
+     *          @OA\Property(property="control",description="1", type="integer", example="1"),
+     *          @OA\Property(property="control_defect",description="1", type="integer", example="1"),
      *          @OA\Property(property="report_day",description="2022-04-01", type="date", example="2022-04-01"),
-     *          @OA\Property(property="report_type_id",description="1", type="integer", example="1"),
      *
      *    )
      * ),
@@ -94,16 +92,14 @@ class HrReportController extends Controller
      *          @OA\JsonContent(
      *             type="object",
      *          @OA\Property(property="id", type="number", example="1"),
-     *          @OA\Property(property="text_1",description="Текст 1", type="string", example="Тест"),
-     *          @OA\Property(property="text_2",description="Текст 2", type="string", example="Тест"),
-     *          @OA\Property(property="text_3",description="Текст 3", type="string", example="Тест"),
-     *          @OA\Property(property="text_4",description="Текст 4", type="string", example="Тест"),
-     *          @OA\Property(property="date_1",description="2022-04-01", type="date", example="2022-04-01"),
-     *          @OA\Property(property="date_2",description="2022-04-01", type="date", example="2022-04-01"),
-     *          @OA\Property(property="date_3",description="2022-04-01", type="date", example="2022-04-01"),
-     *          @OA\Property(property="date_4",description="2022-04-01", type="date", example="2022-04-01"),
+     *          @OA\Property(property="user_id",description="1", type="integer", example="1"),
+     *          @OA\Property(property="company_id",description="1", type="integer", example="1"),
+     *          @OA\Property(property="name_list",description="Текст", type="string", example="Тест"),
+     *          @OA\Property(property="production",description="1", type="integer", example="1"),
+     *          @OA\Property(property="production_defect",description="1", type="integer", example="1"),
+     *          @OA\Property(property="control",description="1", type="integer", example="1"),
+     *          @OA\Property(property="control_defect",description="1", type="integer", example="1"),
      *          @OA\Property(property="report_day",description="2022-04-01", type="date", example="2022-04-01"),
-     *          @OA\Property(property="report_type_id",description="1", type="integer", example="1"),
      *         )
      *      ),
      *     @OA\Response(
@@ -126,7 +122,7 @@ class HrReportController extends Controller
      */
     public function store(Request $request)
     {
-        $entity = new HrReport();
+        $entity = new Report();
 
         $validator = $entity->validate($request->all());
         if ($validator->fails()) {
@@ -136,7 +132,7 @@ class HrReportController extends Controller
         $entity->fill($request->only($entity->getFillable()))->save();
 
         return response(
-            HrReport::whereId($entity->id)->first()->toArray(), 200);
+            Report::whereId($entity->id)->first()->toArray(), 200);
     }
 
     /**
@@ -166,8 +162,8 @@ class HrReportController extends Controller
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      * @OA\Patch (
-     *     path="/api/hr-report/{id}",
-     *     tags={"HR Report"},
+     *     path="/api/production-report/{id}",
+     *     tags={"Production report"},
      *     @OA\Parameter(
      *      name="id",
      *      in="path",
@@ -176,22 +172,19 @@ class HrReportController extends Controller
      *      )
      *   ),
      *     @OA\RequestBody(
-     *    request="Update HR Report",
-     *    description="Update HR Report Fields",
+     *    request="Update Production report",
+     *    description="Update Production report Fields",
      *    @OA\JsonContent(
      *        type="object",
      *        required={""},
-     *          @OA\Property(property="text_1",description="Текст 1", type="string", example="Тест"),
-     *          @OA\Property(property="text_2",description="Текст 2", type="string", example="Тест"),
-     *          @OA\Property(property="text_3",description="Текст 3", type="string", example="Тест"),
-     *          @OA\Property(property="text_4",description="Текст 4", type="string", example="Тест"),
-     *          @OA\Property(property="date_1",description="2022-04-01", type="date", example="2022-04-01"),
-     *          @OA\Property(property="date_2",description="2022-04-01", type="date", example="2022-04-01"),
-     *          @OA\Property(property="date_3",description="2022-04-01", type="date", example="2022-04-01"),
-     *          @OA\Property(property="date_4",description="2022-04-01", type="date", example="2022-04-01"),
-     *          @OA\Property(property="report_day",description="2022-04-01", type="date", example="2022-04-01"),
-     *          @OA\Property(property="report_type_id",description="1", type="integer", example="1"),
+     *          @OA\Property(property="user_id",description="1", type="integer", example="1"),
      *          @OA\Property(property="company_id",description="1", type="integer", example="1"),
+     *          @OA\Property(property="name_list",description="Текст", type="string", example="Тест"),
+     *          @OA\Property(property="production",description="1", type="integer", example="1"),
+     *          @OA\Property(property="production_defect",description="1", type="integer", example="1"),
+     *          @OA\Property(property="control",description="1", type="integer", example="1"),
+     *          @OA\Property(property="control_defect",description="1", type="integer", example="1"),
+     *          @OA\Property(property="report_day",description="2022-04-01", type="date", example="2022-04-01"),
      *    )
      * ),
      *     @OA\Response(
@@ -200,17 +193,14 @@ class HrReportController extends Controller
      *          @OA\JsonContent(
      *             type="object",
      *          @OA\Property(property="id", type="number", example="1"),
-     *          @OA\Property(property="text_1",description="Текст 1", type="string", example="Тест"),
-     *          @OA\Property(property="text_2",description="Текст 2", type="string", example="Тест"),
-     *          @OA\Property(property="text_3",description="Текст 3", type="string", example="Тест"),
-     *          @OA\Property(property="text_4",description="Текст 4", type="string", example="Тест"),
-     *          @OA\Property(property="date_1",description="2022-04-01", type="date", example="2022-04-01"),
-     *          @OA\Property(property="date_2",description="2022-04-01", type="date", example="2022-04-01"),
-     *          @OA\Property(property="date_3",description="2022-04-01", type="date", example="2022-04-01"),
-     *          @OA\Property(property="date_4",description="2022-04-01", type="date", example="2022-04-01"),
-     *          @OA\Property(property="report_day",description="2022-04-01", type="date", example="2022-04-01"),
-     *          @OA\Property(property="report_type_id",description="1", type="integer", example="1"),
+     *          @OA\Property(property="user_id",description="1", type="integer", example="1"),
      *          @OA\Property(property="company_id",description="1", type="integer", example="1"),
+     *          @OA\Property(property="name_list",description="Текст", type="string", example="Тест"),
+     *          @OA\Property(property="production",description="1", type="integer", example="1"),
+     *          @OA\Property(property="production_defect",description="1", type="integer", example="1"),
+     *          @OA\Property(property="control",description="1", type="integer", example="1"),
+     *          @OA\Property(property="control_defect",description="1", type="integer", example="1"),
+     *          @OA\Property(property="report_day",description="2022-04-01", type="date", example="2022-04-01"),
      *
      *         )
      *      ),
@@ -235,7 +225,7 @@ class HrReportController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $entity = HrReport::whereId($id)->first();
+        $entity = Report::whereId($id)->first();
         if (!$entity) {
             return response([], 404);
         }
@@ -261,8 +251,8 @@ class HrReportController extends Controller
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      * @OA\Delete  (
-     *     path="/api/hr-report/{id}",
-     *     tags={"HR Report"},
+     *     path="/api/production-report/{id}",
+     *     tags={"Production report"},
      *     @OA\Parameter(
      *      name="id",
      *      in="path",
@@ -291,7 +281,7 @@ class HrReportController extends Controller
      */
     public function destroy($id)
     {
-        $is_deleted = (bool)HrReport::whereId($id)->delete();
+        $is_deleted = (bool)Report::whereId($id)->delete();
 
         return response(['is_deleted' => $is_deleted], $is_deleted ? 200 : 400);
     }

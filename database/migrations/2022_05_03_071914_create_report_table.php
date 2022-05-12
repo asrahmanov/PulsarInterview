@@ -15,17 +15,14 @@ class CreateReportTable extends Migration
     {
         Schema::create('report', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('report_type_id')->unsigned();
-            $table->string('text_1')->nullable();
-            $table->string('text_2')->nullable();
-            $table->string('text_3')->nullable();
-            $table->string('text_4')->nullable();
-            $table->dateTime('date_1')->nullable();
-            $table->dateTime('date_2')->nullable();
-            $table->dateTime('date_3')->nullable();
-            $table->dateTime('date_4')->nullable();
+            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('company_id')->unsigned();
             $table->date('report_day')->nullable();
-            $table->foreign('report_type_id')->references('id')->on('report_types');
+            $table->string('name_list')->nullable();
+            $table->bigInteger('production')->unsigned();
+            $table->bigInteger('production_defect')->unsigned();
+            $table->bigInteger('control')->unsigned();
+            $table->bigInteger('control_defect')->unsigned();
             $table->softDeletes();
             $table->timestamps();
         });
