@@ -83,6 +83,8 @@ class Report extends Model
         "production_defect",
         "control",
         "control_defect",
+        "plan_day",
+        "plan_mount"
     ];
     protected $hidden=[
         "created_at",
