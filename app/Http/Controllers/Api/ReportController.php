@@ -46,8 +46,8 @@ class ReportController extends Controller
     public function getByReportDay($report_day, $company_id)
     {
         return Report::select()
-            ->whereReportDay($report_day)
-//            ->whereCompanyId($company_id)
+            ->where(['report_day' => $report_day,
+                'company_id' => $company_id])
             ->get();
 
 
