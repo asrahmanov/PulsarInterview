@@ -45,11 +45,17 @@ class ReportController extends Controller
      */
     public function getByReportDay($report_day, $company_id)
     {
-        return Report::select()
-            ->where(['report_day' => $report_day,
-                'company_id' => $company_id])
-            ->get();
+        if($company_id == 0) {
+            return Report::select()
+                ->where(['report_day' => $report_day])
+                ->get();
 
+        } else {
+            return Report::select()
+                ->where(['report_day' => $report_day,
+                    'company_id' => $company_id])
+                ->get();
+        }
 
     }
 
