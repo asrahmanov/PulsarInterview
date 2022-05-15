@@ -41,7 +41,8 @@ reg_routes('production-report', \App\Http\Controllers\Api\ReportController::clas
     [],
     [],
     [
-        ['method' => 'get', 'uri' => 'get-by-report-day', 'pathParams'=>['report_day', 'company_id']]
+        ['method' => 'get', 'uri' => 'get-by-report-day', 'pathParams'=>['report_day', 'company_id']],
+        ['method' => 'get', 'uri' => 'get-by-report-between', 'pathParams'=>['report_day_from', 'report_day_to','company_id']]
     ]
 );
 

@@ -53,6 +53,46 @@ class ReportController extends Controller
 
     }
 
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * @OA\Get (
+     *     tags={"Production report"},
+     *     path="/api/production-report/get-by-report-between/{report_day_from}/{report_day_to}/{company_id}",
+     *     @OA\Parameter( name="report_day_from", in="path", required=false, description="", @OA\Schema( type="date" ) ),
+     *     @OA\Parameter( name="report_day_to", in="path", required=false, description="", @OA\Schema( type="date" ) ),
+     *     @OA\Parameter( name="company_id", in="path", required=false, description="", @OA\Schema( type="integer" ) ),
+     *
+     *     @OA\Response(
+     *          response=200,
+     *          description="",
+     *      @OA\JsonContent(
+     *     type="object",
+     *                      )
+     *                  ),
+     *      )
+     */
+    public function getByReportBetween($report_day_from, $report_day_to, $company_id)
+    {
+
+        if ($company_id == 0) {
+            return Report::select()
+                ->where('report_day', '>=', $report_day_from)
+                ->where('report_day', '>=', $report_day_to)
+//                ->where('company_id', '>=', $company_id)
+                ->get();
+        } else {
+            return Report::select()
+                ->where('report_day', '>=', $report_day_from)
+                ->where('report_day', '>=', $report_day_to)
+                ->where('company_id', '>=', $company_id)
+                ->get();
+        }
+
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *
