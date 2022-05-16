@@ -92,7 +92,7 @@ class ReportController extends Controller
             return Report::select()
                 ->where('report_day', '>=', $report_day_from)
                 ->where('report_day', '<=', $report_day_to)
-                ->where('company_id', '>=', $company_id)
+                ->where('company_id', '=', $company_id)
                 ->get();
         }
 
