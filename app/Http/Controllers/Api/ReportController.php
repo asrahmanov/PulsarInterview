@@ -85,13 +85,13 @@ class ReportController extends Controller
         if ($company_id == 0) {
             return Report::select()
                 ->where('report_day', '>=', $report_day_from)
-                ->where('report_day', '>=', $report_day_to)
+                ->where('report_day', '<=', $report_day_to)
 //                ->where('company_id', '>=', $company_id)
                 ->get();
         } else {
             return Report::select()
                 ->where('report_day', '>=', $report_day_from)
-                ->where('report_day', '>=', $report_day_to)
+                ->where('report_day', '<=', $report_day_to)
                 ->where('company_id', '>=', $company_id)
                 ->get();
         }
