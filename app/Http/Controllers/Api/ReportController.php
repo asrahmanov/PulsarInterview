@@ -86,6 +86,7 @@ class ReportController extends Controller
             return Report::select()
                 ->where('report_day', '>=', $report_day_from)
                 ->where('report_day', '<=', $report_day_to)
+                ->orderBy('report_day', 'DESC')
 //                ->where('company_id', '>=', $company_id)
                 ->get();
         } else {
@@ -93,6 +94,7 @@ class ReportController extends Controller
                 ->where('report_day', '>=', $report_day_from)
                 ->where('report_day', '<=', $report_day_to)
                 ->where('company_id', '=', $company_id)
+                ->orderBy('report_day', 'DESC')
                 ->get();
         }
 
