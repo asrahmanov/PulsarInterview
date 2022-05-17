@@ -26,10 +26,6 @@ cp .env.prod .env
 
 sudo docker exec pulsar_production_sevice_fpm php artisan swagger-lume:generate
 
-Создание баз данных
-
-sudo cat docker/backup.sql | sudo docker exec -i pulsar_production_sevice_mysql /usr/bin/mysql -u root --password=#tWM1dKA
-
 sudo docker exec pulsar_production_sevice_fpm php artisan migrate
 
 sudo docker exec pulsar_production_sevice_fpm php artisan db:seed
