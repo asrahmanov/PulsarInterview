@@ -6,60 +6,43 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+
 /**
- * App\Models\HrReportTypes
+ * App\Models\Report
  *
  * @property int $id
- * @property string $name
+ * @property int $user_id
+ * @property int $company_id
+ * @property string|null $report_day
+ * @property string|null $launch_plan
+ * @property int $launch_fact
+ * @property int $fact_of_transfer_to_otk
+ * @property int $fact_of_transfer_to_warehouse
+ * @property int $launch_previously
+ * @property int $plan_of_transfer_to_otk
+ * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property \Illuminate\Support\Carbon|null $deleted_at
- * @method static \Illuminate\Database\Eloquent\Builder|HrReportTypes newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|HrReportTypes newQuery()
- * @method static \Illuminate\Database\Query\Builder|HrReportTypes onlyTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|HrReportTypes query()
- * @method static \Illuminate\Database\Eloquent\Builder|HrReportTypes whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|HrReportTypes whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|HrReportTypes whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|HrReportTypes whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|HrReportTypes whereUpdatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|HrReportTypes withTrashed()
- * @method static \Illuminate\Database\Query\Builder|HrReportTypes withoutTrashed()
- * @mixin \Eloquent
- * @property int $report_type_id
- * @property string|null $text_1
- * @property string|null $text_2
- * @property string|null $text_3
- * @property string|null $text_4
- * @property string|null $date_1
- * @property string|null $date_2
- * @property string|null $date_3
- * @property string|null $date_4
- * @property string|null $report_day
- * @property int $company_id
+ * @method static \Illuminate\Database\Eloquent\Builder|Report newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Report newQuery()
+ * @method static \Illuminate\Database\Query\Builder|Report onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Report query()
  * @method static \Illuminate\Database\Eloquent\Builder|Report whereCompanyId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Report whereDate1($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Report whereDate2($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Report whereDate3($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Report whereDate4($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Report whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Report whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Report whereFactOfTransferToOtk($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Report whereFactOfTransferToWarehouse($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Report whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Report whereLaunchFact($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Report whereLaunchPlan($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Report whereLaunchPreviously($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Report wherePlanOfTransferToOtk($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Report whereReportDay($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Report whereReportTypeId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Report whereText1($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Report whereText2($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Report whereText3($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Report whereText4($value)
- * @property int $user_id
- * @property string|null $name_list
- * @property int $production
- * @property int $production_defect
- * @property int $control
- * @property int $control_defect
- * @method static \Illuminate\Database\Eloquent\Builder|Report whereControl($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Report whereControlDefect($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Report whereNameList($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Report whereProduction($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Report whereProductionDefect($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Report whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Report whereUserId($value)
+ * @method static \Illuminate\Database\Query\Builder|Report withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Report withoutTrashed()
+ * @mixin \Eloquent
  */
 class Report extends Model
 {
@@ -78,14 +61,18 @@ class Report extends Model
         "user_id",
         "company_id",
         "report_day",
-        "name_list",
-        "production",
-        "production_defect",
-        "control",
-        "control_defect",
-        "plan_day",
-        "plan_mount"
+        "launch_plan",
+        "launch_fact",
+        "fact_of_transfer_to_otk",
+        "fact_of_transfer_to_warehouse",
+        "launch_previously",
+        "plan_of_transfer_to_otk"
+
+
     ];
+
+
+
     protected $hidden=[
         "created_at",
         "updated_at",

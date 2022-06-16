@@ -111,6 +111,9 @@ class ReportController extends Controller
         //
     }
 
+
+
+
     /**
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
@@ -125,13 +128,12 @@ class ReportController extends Controller
      *        required={""},
      *          @OA\Property(property="user_id",description="1", type="integer", example="1"),
      *          @OA\Property(property="company_id",description="1", type="integer", example="1"),
-     *          @OA\Property(property="name_list",description="Текст", type="string", example="Тест"),
-     *          @OA\Property(property="production",description="1", type="integer", example="1"),
-     *          @OA\Property(property="plan_day",description="1", type="integer", example="1"),
-     *          @OA\Property(property="plan_mount",description="1", type="integer", example="1"),
-     *          @OA\Property(property="production_defect",description="1", type="integer", example="1"),
-     *          @OA\Property(property="control",description="1", type="integer", example="1"),
-     *          @OA\Property(property="control_defect",description="1", type="integer", example="1"),
+     *          @OA\Property(property="launch_plan",description="Текст", type="string", example="Тест"),
+     *          @OA\Property(property="launch_fact",description="1", type="integer", example="1"),
+     *          @OA\Property(property="fact_of_transfer_to_otk",description="1", type="integer", example="1"),
+     *          @OA\Property(property="fact_of_transfer_to_warehouse",description="1", type="integer", example="1"),
+     *          @OA\Property(property="launch_previously",description="1", type="integer", example="1"),
+     *          @OA\Property(property="plan_of_transfer_to_otk",description="1", type="integer", example="1"),
      *          @OA\Property(property="report_day",description="2022-04-01", type="date", example="2022-04-01"),
      *
      *    )
@@ -144,13 +146,12 @@ class ReportController extends Controller
      *          @OA\Property(property="id", type="number", example="1"),
      *          @OA\Property(property="user_id",description="1", type="integer", example="1"),
      *          @OA\Property(property="company_id",description="1", type="integer", example="1"),
-     *          @OA\Property(property="name_list",description="Текст", type="string", example="Тест"),
-     *          @OA\Property(property="production",description="1", type="integer", example="1"),
-     *          @OA\Property(property="plan_day",description="1", type="integer", example="1"),
-     *          @OA\Property(property="plan_mount",description="1", type="integer", example="1"),
-     *          @OA\Property(property="production_defect",description="1", type="integer", example="1"),
-     *          @OA\Property(property="control",description="1", type="integer", example="1"),
-     *          @OA\Property(property="control_defect",description="1", type="integer", example="1"),
+     *          @OA\Property(property="launch_plan",description="Текст", type="string", example="Тест"),
+     *          @OA\Property(property="launch_fact",description="1", type="integer", example="1"),
+     *          @OA\Property(property="fact_of_transfer_to_otk",description="1", type="integer", example="1"),
+     *          @OA\Property(property="fact_of_transfer_to_warehouse",description="1", type="integer", example="1"),
+     *          @OA\Property(property="launch_previously",description="1", type="integer", example="1"),
+     *          @OA\Property(property="plan_of_transfer_to_otk",description="1", type="integer", example="1"),
      *          @OA\Property(property="report_day",description="2022-04-01", type="date", example="2022-04-01"),
      *         )
      *      ),
@@ -231,13 +232,12 @@ class ReportController extends Controller
      *        required={""},
      *          @OA\Property(property="user_id",description="1", type="integer", example="1"),
      *          @OA\Property(property="company_id",description="1", type="integer", example="1"),
-     *          @OA\Property(property="name_list",description="Текст", type="string", example="Тест"),
-     *          @OA\Property(property="production",description="1", type="integer", example="1"),
-     *          @OA\Property(property="plan_day",description="1", type="integer", example="1"),
-     *          @OA\Property(property="plan_mount",description="1", type="integer", example="1"),
-     *          @OA\Property(property="production_defect",description="1", type="integer", example="1"),
-     *          @OA\Property(property="control",description="1", type="integer", example="1"),
-     *          @OA\Property(property="control_defect",description="1", type="integer", example="1"),
+     *          @OA\Property(property="launch_plan",description="Текст", type="string", example="Тест"),
+     *          @OA\Property(property="launch_fact",description="1", type="integer", example="1"),
+     *          @OA\Property(property="fact_of_transfer_to_otk",description="1", type="integer", example="1"),
+     *          @OA\Property(property="fact_of_transfer_to_warehouse",description="1", type="integer", example="1"),
+     *          @OA\Property(property="launch_previously",description="1", type="integer", example="1"),
+     *          @OA\Property(property="plan_of_transfer_to_otk",description="1", type="integer", example="1"),
      *          @OA\Property(property="report_day",description="2022-04-01", type="date", example="2022-04-01"),
      *    )
      * ),
@@ -249,13 +249,12 @@ class ReportController extends Controller
      *          @OA\Property(property="id", type="number", example="1"),
      *          @OA\Property(property="user_id",description="1", type="integer", example="1"),
      *          @OA\Property(property="company_id",description="1", type="integer", example="1"),
-     *          @OA\Property(property="name_list",description="Текст", type="string", example="Тест"),
-     *          @OA\Property(property="production",description="1", type="integer", example="1"),
-     *          @OA\Property(property="plan_day",description="1", type="integer", example="1"),
-     *          @OA\Property(property="plan_mount",description="1", type="integer", example="1"),
-     *          @OA\Property(property="production_defect",description="1", type="integer", example="1"),
-     *          @OA\Property(property="control",description="1", type="integer", example="1"),
-     *          @OA\Property(property="control_defect",description="1", type="integer", example="1"),
+     *          @OA\Property(property="launch_plan",description="Текст", type="string", example="Тест"),
+     *          @OA\Property(property="launch_fact",description="1", type="integer", example="1"),
+     *          @OA\Property(property="fact_of_transfer_to_otk",description="1", type="integer", example="1"),
+     *          @OA\Property(property="fact_of_transfer_to_warehouse",description="1", type="integer", example="1"),
+     *          @OA\Property(property="launch_previously",description="1", type="integer", example="1"),
+     *          @OA\Property(property="plan_of_transfer_to_otk",description="1", type="integer", example="1"),
      *          @OA\Property(property="report_day",description="2022-04-01", type="date", example="2022-04-01"),
      *
      *         )

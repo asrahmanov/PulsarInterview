@@ -18,15 +18,17 @@ class CreateReportTable extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('company_id')->unsigned();
             $table->date('report_day')->nullable();
-            $table->string('name_list')->nullable();
-            $table->bigInteger('production')->unsigned();
-            $table->bigInteger('production_defect')->unsigned();
-            $table->bigInteger('control')->unsigned();
-            $table->bigInteger('control_defect')->unsigned();
+            $table->string('launch_plan')->nullable();
+            $table->bigInteger('launch_fact')->unsigned();
+            $table->bigInteger('fact_of_transfer_to_otk')->unsigned();
+            $table->bigInteger('fact_of_transfer_to_warehouse')->unsigned();
+            $table->bigInteger('launch_previously')->unsigned();
+            $table->bigInteger('plan_of_transfer_to_otk')->unsigned();
             $table->softDeletes();
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
