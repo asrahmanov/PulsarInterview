@@ -1,0 +1,517 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "pulsar_production_API",
+        "description": "",
+        "contact": {
+            "email": ""
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/production-report": {
+            "get": {
+                "tags": [
+                    "Production report"
+                ],
+                "operationId": "d051c01fe01ebb5ead3f9d481ff83d73",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Production report"
+                ],
+                "operationId": "8baf89fe6e3cf085d808def8993d78c7",
+                "requestBody": {
+                    "request": "Create Production report",
+                    "description": "Create Production report Fields",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    ""
+                                ],
+                                "properties": {
+                                    "user_id": {
+                                        "description": "1",
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "company_id": {
+                                        "description": "1",
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "launch_plan": {
+                                        "description": "Текст",
+                                        "type": "string",
+                                        "example": "Тест"
+                                    },
+                                    "launch_fact": {
+                                        "description": "1",
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "fact_of_transfer_to_otk": {
+                                        "description": "1",
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "fact_of_transfer_to_warehouse": {
+                                        "description": "1",
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "launch_previously": {
+                                        "description": "1",
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "plan_of_transfer_to_otk": {
+                                        "description": "1",
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "report_day": {
+                                        "description": "2022-04-01",
+                                        "type": "date",
+                                        "example": "2022-04-01"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success Create",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": "1"
+                                        },
+                                        "user_id": {
+                                            "description": "1",
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "company_id": {
+                                            "description": "1",
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "launch_plan": {
+                                            "description": "Текст",
+                                            "type": "string",
+                                            "example": "Тест"
+                                        },
+                                        "launch_fact": {
+                                            "description": "1",
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "fact_of_transfer_to_otk": {
+                                            "description": "1",
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "fact_of_transfer_to_warehouse": {
+                                            "description": "1",
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "launch_previously": {
+                                            "description": "1",
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "plan_of_transfer_to_otk": {
+                                            "description": "1",
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "report_day": {
+                                            "description": "2022-04-01",
+                                            "type": "date",
+                                            "example": "2022-04-01"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation errors",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "title": "errors",
+                                    "description": "errors object",
+                                    "properties": {
+                                        "errors": {
+                                            "title": "Validation errors",
+                                            "description": "Validation errors object",
+                                            "properties": {
+                                                "field1": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "example": "The field1 field is required."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/production-report/get-by-report-day/{report_day}/{company_id}": {
+            "get": {
+                "tags": [
+                    "Production report"
+                ],
+                "operationId": "0fbb49c3a5848f631c6692d410525c6d",
+                "parameters": [
+                    {
+                        "name": "report_day",
+                        "in": "path",
+                        "description": "Получить все отчеты по дате",
+                        "required": false,
+                        "schema": {
+                            "type": "date"
+                        }
+                    },
+                    {
+                        "name": "company_id",
+                        "in": "path",
+                        "description": "",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/production-report/get-by-report-between/{report_day_from}/{report_day_to}/{company_id}": {
+            "get": {
+                "tags": [
+                    "Production report"
+                ],
+                "operationId": "bf6fd15d578514c1743f6b1600bd3e6d",
+                "parameters": [
+                    {
+                        "name": "report_day_from",
+                        "in": "path",
+                        "description": "",
+                        "required": false,
+                        "schema": {
+                            "type": "date"
+                        }
+                    },
+                    {
+                        "name": "report_day_to",
+                        "in": "path",
+                        "description": "",
+                        "required": false,
+                        "schema": {
+                            "type": "date"
+                        }
+                    },
+                    {
+                        "name": "company_id",
+                        "in": "path",
+                        "description": "",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/production-report/{id}": {
+            "delete": {
+                "tags": [
+                    "Production report"
+                ],
+                "operationId": "d178d6fb583aab89cc64346837ed4fb4",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success Delete",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "is_deleted": {
+                                            "type": "boolean",
+                                            "example": true
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error Delete",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "is_deleted": {
+                                            "type": "boolean",
+                                            "example": false
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Production report"
+                ],
+                "operationId": "e360fc1e15ac04644b5dd66f8c7dc97d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Update Production report",
+                    "description": "Update Production report Fields",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    ""
+                                ],
+                                "properties": {
+                                    "user_id": {
+                                        "description": "1",
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "company_id": {
+                                        "description": "1",
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "launch_plan": {
+                                        "description": "Текст",
+                                        "type": "string",
+                                        "example": "Тест"
+                                    },
+                                    "launch_fact": {
+                                        "description": "1",
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "fact_of_transfer_to_otk": {
+                                        "description": "1",
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "fact_of_transfer_to_warehouse": {
+                                        "description": "1",
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "launch_previously": {
+                                        "description": "1",
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "plan_of_transfer_to_otk": {
+                                        "description": "1",
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "report_day": {
+                                        "description": "2022-04-01",
+                                        "type": "date",
+                                        "example": "2022-04-01"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success Create",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": "1"
+                                        },
+                                        "user_id": {
+                                            "description": "1",
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "company_id": {
+                                            "description": "1",
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "launch_plan": {
+                                            "description": "Текст",
+                                            "type": "string",
+                                            "example": "Тест"
+                                        },
+                                        "launch_fact": {
+                                            "description": "1",
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "fact_of_transfer_to_otk": {
+                                            "description": "1",
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "fact_of_transfer_to_warehouse": {
+                                            "description": "1",
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "launch_previously": {
+                                            "description": "1",
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "plan_of_transfer_to_otk": {
+                                            "description": "1",
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "report_day": {
+                                            "description": "2022-04-01",
+                                            "type": "date",
+                                            "example": "2022-04-01"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation errors",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "title": "errors",
+                                    "description": "errors object",
+                                    "properties": {
+                                        "errors": {
+                                            "title": "Validation errors",
+                                            "description": "Validation errors object",
+                                            "properties": {
+                                                "field1": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "example": "The field1 field is required."
+                                                    }
+                                                },
+                                                "field2": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "example": "The field2 field is required."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "QCResouce": {
+                "title": "QCResource",
+                "description": "QC resource",
+                "properties": {
+                    "data": {
+                        "title": "Data",
+                        "description": "Data wrapper",
+                        "type": "array",
+                        "items": {
+                            "ref": null
+                        }
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "QCResource"
+                }
+            }
+        }
+    }
+}
