@@ -45,7 +45,7 @@ class ReportController extends Controller
      */
     public function getByReportDay($report_day, $company_id)
     {
-        if($company_id == 0) {
+        if ($company_id == 0) {
             return Report::select()
                 ->where(['report_day' => $report_day])
                 ->get();
@@ -110,8 +110,6 @@ class ReportController extends Controller
     {
         //
     }
-
-
 
 
     /**
@@ -182,10 +180,20 @@ class ReportController extends Controller
             return response(['errors' => $validator->errors()], 422);
         }
 
-        $entity->fill($request->only($entity->getFillable()))->save();
+        $report = Report::whereReportDay($request->report_day)->first();
 
-        return response(
-            Report::whereId($entity->id)->first()->toArray(), 200);
+        if (isset($report)) {
+            $report->fill($request->only($entity->getFillable()))->save();
+            return response(
+                Report::whereId($report->id)->first()->toArray(), 200);
+        } else {
+            $entity->fill($request->only($entity->getFillable()))->save();
+            return response(
+                Report::whereId($entity->id)->first()->toArray(), 200);
+        }
+
+
+
     }
 
     /**
