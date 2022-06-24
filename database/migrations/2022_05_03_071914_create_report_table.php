@@ -25,6 +25,7 @@ class CreateReportTable extends Migration
             $table->bigInteger('launch_previously')->unsigned();
             $table->bigInteger('plan_of_transfer_to_otk')->unsigned();
             $table->bigInteger('launch_plan_ssz')->unsigned(); // план запуска по ССЗ
+            $table->bigInteger('sampling')->unsigned(); // план запуска по ССЗ
             $table->softDeletes();
             $table->timestamps();
         });

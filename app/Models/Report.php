@@ -67,7 +67,8 @@ class Report extends Model
         "fact_of_transfer_to_warehouse",
         "launch_previously",
         "plan_of_transfer_to_otk",
-        "launch_plan_ssz"
+        "launch_plan_ssz",
+        "sampling"
 
 
     ];

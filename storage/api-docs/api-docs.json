@@ -81,6 +81,11 @@
                                         "type": "integer",
                                         "example": "1"
                                     },
+                                    "sampling": {
+                                        "description": "1",
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
                                     "report_day": {
                                         "description": "2022-04-01",
                                         "type": "date",
@@ -144,6 +149,11 @@
                                             "example": "1"
                                         },
                                         "launch_plan_ssz": {
+                                            "description": "1",
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "sampling": {
                                             "description": "1",
                                             "type": "integer",
                                             "example": "1"
@@ -397,6 +407,11 @@
                                         "type": "integer",
                                         "example": "1"
                                     },
+                                    "sampling": {
+                                        "description": "1",
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
                                     "report_day": {
                                         "description": "2022-04-01",
                                         "type": "date",
@@ -460,6 +475,11 @@
                                             "example": "1"
                                         },
                                         "launch_plan_ssz": {
+                                            "description": "1",
+                                            "type": "integer",
+                                            "example": "1"
+                                        },
+                                        "sampling": {
                                             "description": "1",
                                             "type": "integer",
                                             "example": "1"
