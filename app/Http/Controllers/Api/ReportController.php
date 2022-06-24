@@ -132,6 +132,7 @@ class ReportController extends Controller
      *          @OA\Property(property="fact_of_transfer_to_warehouse",description="1", type="integer", example="1"),
      *          @OA\Property(property="launch_previously",description="1", type="integer", example="1"),
      *          @OA\Property(property="plan_of_transfer_to_otk",description="1", type="integer", example="1"),
+     *          @OA\Property(property="launch_plan_ssz",description="1", type="integer", example="1"),
      *          @OA\Property(property="report_day",description="2022-04-01", type="date", example="2022-04-01"),
      *
      *    )
@@ -150,6 +151,7 @@ class ReportController extends Controller
      *          @OA\Property(property="fact_of_transfer_to_warehouse",description="1", type="integer", example="1"),
      *          @OA\Property(property="launch_previously",description="1", type="integer", example="1"),
      *          @OA\Property(property="plan_of_transfer_to_otk",description="1", type="integer", example="1"),
+     *          @OA\Property(property="launch_plan_ssz",description="1", type="integer", example="1"),
      *          @OA\Property(property="report_day",description="2022-04-01", type="date", example="2022-04-01"),
      *         )
      *      ),
@@ -246,6 +248,7 @@ class ReportController extends Controller
      *          @OA\Property(property="fact_of_transfer_to_warehouse",description="1", type="integer", example="1"),
      *          @OA\Property(property="launch_previously",description="1", type="integer", example="1"),
      *          @OA\Property(property="plan_of_transfer_to_otk",description="1", type="integer", example="1"),
+     *          @OA\Property(property="launch_plan_ssz",description="1", type="integer", example="1"),
      *          @OA\Property(property="report_day",description="2022-04-01", type="date", example="2022-04-01"),
      *    )
      * ),
@@ -263,6 +266,7 @@ class ReportController extends Controller
      *          @OA\Property(property="fact_of_transfer_to_warehouse",description="1", type="integer", example="1"),
      *          @OA\Property(property="launch_previously",description="1", type="integer", example="1"),
      *          @OA\Property(property="plan_of_transfer_to_otk",description="1", type="integer", example="1"),
+     *          @OA\Property(property="launch_plan_ssz",description="1", type="integer", example="1"),
      *          @OA\Property(property="report_day",description="2022-04-01", type="date", example="2022-04-01"),
      *
      *         )

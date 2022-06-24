@@ -24,6 +24,7 @@ class CreateReportTable extends Migration
             $table->bigInteger('fact_of_transfer_to_warehouse')->unsigned();
             $table->bigInteger('launch_previously')->unsigned();
             $table->bigInteger('plan_of_transfer_to_otk')->unsigned();
+            $table->bigInteger('launch_plan_ssz')->unsigned(); // план запуска по ССЗ
             $table->softDeletes();
             $table->timestamps();
         });
