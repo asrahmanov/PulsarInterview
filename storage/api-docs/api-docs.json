@@ -220,6 +220,37 @@
                 }
             }
         },
+        "/api/interview-worksheets/get-by-id/{id}": {
+            "get": {
+                "tags": [
+                    "Interview worksheets"
+                ],
+                "operationId": "9f66cac2a1b977063b38868993d6543e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "1",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/interview-worksheets/{id}": {
             "delete": {
                 "tags": [

@@ -43,6 +43,7 @@ reg_routes('interview-worksheets', \App\Http\Controllers\Api\InterviewController
     [
         ['method' => 'get', 'uri' => 'get-by-name', 'pathParams'=>['name', 'company_id']],
         ['method' => 'get', 'uri' => 'get-by-userId', 'pathParams'=>['user_id']],
+        ['method' => 'get', 'uri' => 'get-by-id', 'pathParams'=>['id']],
     ]
 );
 

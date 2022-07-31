@@ -90,6 +90,32 @@ class InterviewController extends Controller
         }
 
     }
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * @OA\Get (
+     *     tags={"Interview worksheets"},
+     *     path="/api/interview-worksheets/get-by-id/{id}",
+     *     @OA\Parameter( name="id", in="path", required=false, description="1", @OA\Schema( type="integer" ) ),
+     *
+     *     @OA\Response(
+     *          response=200,
+     *          description="",
+     *      @OA\JsonContent(
+     *     type="object",
+     *                      )
+     *                  ),
+     *      )
+     */
+    public function getById($id)
+    {
+
+            return Worksheets::select()
+                ->where(['id' => $id])
+                ->get();
+
+    }
+
 
 
 
@@ -158,17 +184,25 @@ class InterviewController extends Controller
      */
     public function store(Request $request)
     {
-        $entity = new Worksheets();
+        $entity = Worksheets::whereId($request->id)->first();
+        if (!$entity) {
+            return response([], 404);
+        }
 
-        $validator = $entity->validate($request->all());
+        $validator = $entity->validate($request->all(), false);
+
         if ($validator->fails()) {
             return response(['errors' => $validator->errors()], 422);
         }
 
-        $entity->fill($request->only($entity->getFillable()))->save();
+        $entity->fill($request->only($entity->getFillable()));
 
-        return response(
-            Worksheets::whereId($entity->id)->first()->toArray(), 200);
+        if ($entity->save()) {
+
+            return response($entity->toArray(), 200);
+        } else {
+            return response('anyError', 500);
+        }
 
     }
 
@@ -256,9 +290,9 @@ class InterviewController extends Controller
      *      ),
      * )
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $entity = Worksheets::whereId($id)->first();
+        $entity = Worksheets::whereId($request->id)->first();
         if (!$entity) {
             return response([], 404);
         }
