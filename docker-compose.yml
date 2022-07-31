@@ -5,7 +5,7 @@ services:
     container_name: pulsar_interview_service_nginx
     restart: unless-stopped
     ports:
-      - "400013:80"
+      - "400033:80"
     volumes:
       - ./:/var/www
       - ./docker/conf/vhost.conf:/etc/nginx/conf.d/default.conf
