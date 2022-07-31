@@ -13,19 +13,14 @@ class CreateReportTable extends Migration
      */
     public function up()
     {
-        Schema::create('report', function (Blueprint $table) {
+        Schema::create('worksheets', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id')->unsigned();
-            $table->bigInteger('company_id')->unsigned();
-            $table->date('report_day')->nullable();
-            $table->string('launch_plan')->nullable();
-            $table->bigInteger('launch_fact')->unsigned();
-            $table->bigInteger('fact_of_transfer_to_otk')->unsigned();
-            $table->bigInteger('fact_of_transfer_to_warehouse')->unsigned();
-            $table->bigInteger('launch_previously')->unsigned();
-            $table->bigInteger('plan_of_transfer_to_otk')->unsigned();
-            $table->bigInteger('launch_plan_ssz')->unsigned(); // план запуска по ССЗ
-            $table->bigInteger('sampling')->unsigned(); // план запуска по ССЗ
+            $table->bigInteger('user_id')->unsigned()->default(1);
+            $table->bigInteger('company_id')->unsigned()->default(1);
+            $table->string('name');
+            $table->text('form_questions');
+            $table->text('form_answers');
+            $table->enum('status', array('new','close'))->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

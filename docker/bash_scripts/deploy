@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker exec pulsar_production_sevice_fpm composer update
+docker exec pulsar_interview_sevice_fpm composer update
 
 cp .env.prod .env
 

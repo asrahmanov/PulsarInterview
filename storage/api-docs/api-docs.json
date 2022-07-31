@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "pulsar_production_API",
+        "title": "pulsar_interview_API",
         "description": "",
         "contact": {
             "email": ""
@@ -9,12 +9,12 @@
         "version": "1.0.0"
     },
     "paths": {
-        "/api/production-report": {
+        "/api/interview-worksheets": {
             "get": {
                 "tags": [
-                    "Production report"
+                    "Interview worksheets"
                 ],
-                "operationId": "d051c01fe01ebb5ead3f9d481ff83d73",
+                "operationId": "ddcffef2a1953bf0abbfc36adf67a592",
                 "responses": {
                     "200": {
                         "description": ""
@@ -23,12 +23,12 @@
             },
             "post": {
                 "tags": [
-                    "Production report"
+                    "Interview worksheets"
                 ],
-                "operationId": "8baf89fe6e3cf085d808def8993d78c7",
+                "operationId": "4709c0b056c97f5ac9bf32096bf7b720",
                 "requestBody": {
-                    "request": "Create Production report",
-                    "description": "Create Production report Fields",
+                    "request": "Create Interview worksheets",
+                    "description": "Create Interview worksheets Fields",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -46,50 +46,25 @@
                                         "type": "integer",
                                         "example": "1"
                                     },
-                                    "launch_plan": {
+                                    "name": {
                                         "description": "Текст",
                                         "type": "string",
                                         "example": "Тест"
                                     },
-                                    "launch_fact": {
-                                        "description": "1",
-                                        "type": "integer",
-                                        "example": "1"
-                                    },
-                                    "fact_of_transfer_to_otk": {
-                                        "description": "1",
-                                        "type": "integer",
-                                        "example": "1"
-                                    },
-                                    "fact_of_transfer_to_warehouse": {
-                                        "description": "1",
-                                        "type": "integer",
-                                        "example": "1"
-                                    },
-                                    "launch_previously": {
-                                        "description": "1",
-                                        "type": "integer",
-                                        "example": "1"
-                                    },
-                                    "plan_of_transfer_to_otk": {
-                                        "description": "1",
-                                        "type": "integer",
-                                        "example": "1"
-                                    },
-                                    "launch_plan_ssz": {
-                                        "description": "1",
-                                        "type": "integer",
-                                        "example": "1"
-                                    },
-                                    "sampling": {
-                                        "description": "1",
-                                        "type": "integer",
-                                        "example": "1"
-                                    },
-                                    "report_day": {
+                                    "form_questions": {
                                         "description": "2022-04-01",
-                                        "type": "date",
-                                        "example": "2022-04-01"
+                                        "type": "json",
+                                        "example": ""
+                                    },
+                                    "form_answers": {
+                                        "description": "2022-04-01",
+                                        "type": "json",
+                                        "example": ""
+                                    },
+                                    "status": {
+                                        "description": "2022-04-01",
+                                        "type": "string",
+                                        "example": "new"
                                     }
                                 },
                                 "type": "object"
@@ -118,50 +93,25 @@
                                             "type": "integer",
                                             "example": "1"
                                         },
-                                        "launch_plan": {
+                                        "name": {
                                             "description": "Текст",
                                             "type": "string",
                                             "example": "Тест"
                                         },
-                                        "launch_fact": {
-                                            "description": "1",
-                                            "type": "integer",
-                                            "example": "1"
-                                        },
-                                        "fact_of_transfer_to_otk": {
-                                            "description": "1",
-                                            "type": "integer",
-                                            "example": "1"
-                                        },
-                                        "fact_of_transfer_to_warehouse": {
-                                            "description": "1",
-                                            "type": "integer",
-                                            "example": "1"
-                                        },
-                                        "launch_previously": {
-                                            "description": "1",
-                                            "type": "integer",
-                                            "example": "1"
-                                        },
-                                        "plan_of_transfer_to_otk": {
-                                            "description": "1",
-                                            "type": "integer",
-                                            "example": "1"
-                                        },
-                                        "launch_plan_ssz": {
-                                            "description": "1",
-                                            "type": "integer",
-                                            "example": "1"
-                                        },
-                                        "sampling": {
-                                            "description": "1",
-                                            "type": "integer",
-                                            "example": "1"
-                                        },
-                                        "report_day": {
+                                        "form_questions": {
                                             "description": "2022-04-01",
-                                            "type": "date",
-                                            "example": "2022-04-01"
+                                            "type": "json",
+                                            "example": ""
+                                        },
+                                        "form_answers": {
+                                            "description": "2022-04-01",
+                                            "type": "json",
+                                            "example": ""
+                                        },
+                                        "status": {
+                                            "description": "2022-04-01",
+                                            "type": "string",
+                                            "example": "new"
                                         }
                                     },
                                     "type": "object"
@@ -199,26 +149,26 @@
                 }
             }
         },
-        "/api/production-report/get-by-report-day/{report_day}/{company_id}": {
+        "/api/interview-worksheets/get-by-name/{name}": {
             "get": {
                 "tags": [
-                    "Production report"
+                    "Interview worksheets"
                 ],
-                "operationId": "0fbb49c3a5848f631c6692d410525c6d",
+                "operationId": "1f8054eb2e145347838bdc682ce07dfe",
                 "parameters": [
                     {
-                        "name": "report_day",
+                        "name": "name",
                         "in": "path",
-                        "description": "Получить все отчеты по дате",
+                        "description": "Имя задания",
                         "required": false,
                         "schema": {
-                            "type": "date"
+                            "type": "string"
                         }
                     },
                     {
                         "name": "company_id",
                         "in": "path",
-                        "description": "",
+                        "description": "1",
                         "required": false,
                         "schema": {
                             "type": "integer"
@@ -239,61 +189,12 @@
                 }
             }
         },
-        "/api/production-report/get-by-report-between/{report_day_from}/{report_day_to}/{company_id}": {
-            "get": {
-                "tags": [
-                    "Production report"
-                ],
-                "operationId": "bf6fd15d578514c1743f6b1600bd3e6d",
-                "parameters": [
-                    {
-                        "name": "report_day_from",
-                        "in": "path",
-                        "description": "",
-                        "required": false,
-                        "schema": {
-                            "type": "date"
-                        }
-                    },
-                    {
-                        "name": "report_day_to",
-                        "in": "path",
-                        "description": "",
-                        "required": false,
-                        "schema": {
-                            "type": "date"
-                        }
-                    },
-                    {
-                        "name": "company_id",
-                        "in": "path",
-                        "description": "",
-                        "required": false,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/api/production-report/{id}": {
+        "/api/interview-worksheets/{id}": {
             "delete": {
                 "tags": [
-                    "Production report"
+                    "Interview worksheets"
                 ],
-                "operationId": "d178d6fb583aab89cc64346837ed4fb4",
+                "operationId": "c0209854faf2b2b576e32ff104d6480b",
                 "parameters": [
                     {
                         "name": "id",
@@ -340,9 +241,9 @@
             },
             "patch": {
                 "tags": [
-                    "Production report"
+                    "Interview worksheets"
                 ],
-                "operationId": "e360fc1e15ac04644b5dd66f8c7dc97d",
+                "operationId": "8c4f5ddd102b741b1ba71e6d4af98c4c",
                 "parameters": [
                     {
                         "name": "id",
@@ -353,8 +254,8 @@
                     }
                 ],
                 "requestBody": {
-                    "request": "Update Production report",
-                    "description": "Update Production report Fields",
+                    "request": "Update Interview worksheets",
+                    "description": "Update Interview worksheets Fields",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -372,50 +273,25 @@
                                         "type": "integer",
                                         "example": "1"
                                     },
-                                    "launch_plan": {
+                                    "name": {
                                         "description": "Текст",
                                         "type": "string",
                                         "example": "Тест"
                                     },
-                                    "launch_fact": {
-                                        "description": "1",
-                                        "type": "integer",
-                                        "example": "1"
-                                    },
-                                    "fact_of_transfer_to_otk": {
-                                        "description": "1",
-                                        "type": "integer",
-                                        "example": "1"
-                                    },
-                                    "fact_of_transfer_to_warehouse": {
-                                        "description": "1",
-                                        "type": "integer",
-                                        "example": "1"
-                                    },
-                                    "launch_previously": {
-                                        "description": "1",
-                                        "type": "integer",
-                                        "example": "1"
-                                    },
-                                    "plan_of_transfer_to_otk": {
-                                        "description": "1",
-                                        "type": "integer",
-                                        "example": "1"
-                                    },
-                                    "launch_plan_ssz": {
-                                        "description": "1",
-                                        "type": "integer",
-                                        "example": "1"
-                                    },
-                                    "sampling": {
-                                        "description": "1",
-                                        "type": "integer",
-                                        "example": "1"
-                                    },
-                                    "report_day": {
+                                    "form_questions": {
                                         "description": "2022-04-01",
-                                        "type": "date",
-                                        "example": "2022-04-01"
+                                        "type": "text",
+                                        "example": ""
+                                    },
+                                    "form_answers": {
+                                        "description": "2022-04-01",
+                                        "type": "text",
+                                        "example": ""
+                                    },
+                                    "status": {
+                                        "description": "2022-04-01",
+                                        "type": "string",
+                                        "example": "new"
                                     }
                                 },
                                 "type": "object"
@@ -444,50 +320,25 @@
                                             "type": "integer",
                                             "example": "1"
                                         },
-                                        "launch_plan": {
+                                        "name": {
                                             "description": "Текст",
                                             "type": "string",
                                             "example": "Тест"
                                         },
-                                        "launch_fact": {
-                                            "description": "1",
-                                            "type": "integer",
-                                            "example": "1"
-                                        },
-                                        "fact_of_transfer_to_otk": {
-                                            "description": "1",
-                                            "type": "integer",
-                                            "example": "1"
-                                        },
-                                        "fact_of_transfer_to_warehouse": {
-                                            "description": "1",
-                                            "type": "integer",
-                                            "example": "1"
-                                        },
-                                        "launch_previously": {
-                                            "description": "1",
-                                            "type": "integer",
-                                            "example": "1"
-                                        },
-                                        "plan_of_transfer_to_otk": {
-                                            "description": "1",
-                                            "type": "integer",
-                                            "example": "1"
-                                        },
-                                        "launch_plan_ssz": {
-                                            "description": "1",
-                                            "type": "integer",
-                                            "example": "1"
-                                        },
-                                        "sampling": {
-                                            "description": "1",
-                                            "type": "integer",
-                                            "example": "1"
-                                        },
-                                        "report_day": {
+                                        "form_questions": {
                                             "description": "2022-04-01",
-                                            "type": "date",
-                                            "example": "2022-04-01"
+                                            "type": "json",
+                                            "example": ""
+                                        },
+                                        "form_answers": {
+                                            "description": "2022-04-01",
+                                            "type": "json",
+                                            "example": ""
+                                        },
+                                        "status": {
+                                            "description": "2022-04-01",
+                                            "type": "string",
+                                            "example": "new"
                                         }
                                     },
                                     "type": "object"

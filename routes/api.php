@@ -36,13 +36,12 @@ $router->get('/', function () use ($router) {
 
 
 
-reg_routes('production-report', \App\Http\Controllers\Api\ReportController::class,
+reg_routes('interview-worksheets', \App\Http\Controllers\Api\InterviewController::class,
     $router,
     [],
     [],
     [
-        ['method' => 'get', 'uri' => 'get-by-report-day', 'pathParams'=>['report_day', 'company_id']],
-        ['method' => 'get', 'uri' => 'get-by-report-between', 'pathParams'=>['report_day_from', 'report_day_to','company_id']]
+        ['method' => 'get', 'uri' => 'get-by-name', 'pathParams'=>['name', 'company_id']],
     ]
 );
 

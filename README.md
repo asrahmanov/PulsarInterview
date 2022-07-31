@@ -20,15 +20,15 @@ npm run watch
 <pre>
 sudo docker-compose up -d
 
-sudo docker exec pulsar_production_sevice_fpm composer install
+sudo docker exec pulsar_interview_sevice_fpm composer install
 
 cp .env.prod .env
 
-sudo docker exec pulsar_production_sevice_fpm php artisan swagger-lume:generate
+sudo docker exec pulsar_interview_sevice_fpm php artisan swagger-lume:generate
 
-sudo docker exec pulsar_production_sevice_fpm php artisan migrate
+sudo docker exec pulsar_interview_sevice_fpm php artisan migrate
 
-sudo docker exec pulsar_production_sevice_fpm php artisan db:seed
+sudo docker exec pulsar_interview_sevice_fpm php artisan db:seed
 </pre> 
 
 
