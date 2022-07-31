@@ -61,6 +61,37 @@ class InterviewController extends Controller
     }
 
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * @OA\Get (
+     *     tags={"Interview worksheets"},
+     *     path="/api/interview-worksheets/get-by-userId/{user_id}",
+     *     @OA\Parameter( name="user_id", in="path", required=false, description="1", @OA\Schema( type="integer" ) ),
+     *
+     *     @OA\Response(
+     *          response=200,
+     *          description="",
+     *      @OA\JsonContent(
+     *     type="object",
+     *                      )
+     *                  ),
+     *      )
+     */
+    public function getByUserId($user_id)
+    {
+        if ($user_id == 0) {
+            return Worksheets::get();
+
+        } else {
+            return Worksheets::select()
+                ->where(['user_id' => $user_id])
+                ->get();
+        }
+
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
