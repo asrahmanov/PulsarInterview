@@ -48,6 +48,16 @@ reg_routes('interview-worksheets', \App\Http\Controllers\Api\InterviewController
 );
 
 
+reg_routes('interview-form', \App\Http\Controllers\Api\InterviewController::class,
+    $router,
+    [],
+    [],
+    [
+        ['method' => 'get', 'uri' => 'get-by-id', 'pathParams'=>['id']],
+    ]
+);
+
+
 function reg_routes($name, $controllerName, $router, $only = [], $except = [], $customUses = [])
 {
 

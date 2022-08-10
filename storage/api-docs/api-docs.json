@@ -9,6 +9,270 @@
         "version": "1.0.0"
     },
     "paths": {
+        "/api/interview-form": {
+            "get": {
+                "tags": [
+                    "Interview form"
+                ],
+                "operationId": "e91de5a1f1c59e16f5a7e44ee802e013",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Interview form"
+                ],
+                "operationId": "d042e13ad213e88e44c83d2b06dd70e4",
+                "requestBody": {
+                    "request": "Create Interview form",
+                    "description": "Create Interview form Fields",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    ""
+                                ],
+                                "properties": {
+                                    "form": {
+                                        "description": "2022-04-01",
+                                        "type": "text",
+                                        "example": ""
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success Create",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": "1"
+                                        },
+                                        "form": {
+                                            "description": "2022-04-01",
+                                            "type": "json",
+                                            "example": ""
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation errors",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "title": "errors",
+                                    "description": "errors object",
+                                    "properties": {
+                                        "errors": {
+                                            "title": "Validation errors",
+                                            "description": "Validation errors object",
+                                            "properties": {
+                                                "field1": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "example": "The field1 field is required."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/interview-form/get-by-id/{id}": {
+            "get": {
+                "tags": [
+                    "Interview form"
+                ],
+                "operationId": "71517ae58c8b627647f0417667fa80b8",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "1",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/interview-form/{id}": {
+            "delete": {
+                "tags": [
+                    "Interview form"
+                ],
+                "operationId": "e24f02a070a4857854e92cc3839b9921",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success Delete",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "is_deleted": {
+                                            "type": "boolean",
+                                            "example": true
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error Delete",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "is_deleted": {
+                                            "type": "boolean",
+                                            "example": false
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Interview form"
+                ],
+                "operationId": "d3c0b6d736b2b038153d2625a676aea0",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Update Interview form",
+                    "description": "Update Interview form Fields",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    ""
+                                ],
+                                "properties": {
+                                    "form": {
+                                        "description": "2022-04-01",
+                                        "type": "text",
+                                        "example": ""
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success Create",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": "1"
+                                        },
+                                        "form": {
+                                            "description": "2022-04-01",
+                                            "type": "json",
+                                            "example": ""
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation errors",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "title": "errors",
+                                    "description": "errors object",
+                                    "properties": {
+                                        "errors": {
+                                            "title": "Validation errors",
+                                            "description": "Validation errors object",
+                                            "properties": {
+                                                "field1": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "example": "The field1 field is required."
+                                                    }
+                                                },
+                                                "field2": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "example": "The field2 field is required."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/interview-worksheets": {
             "get": {
                 "tags": [
