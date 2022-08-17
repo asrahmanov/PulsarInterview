@@ -15,7 +15,9 @@ class CreateTableForm extends Migration
     {
         Schema::create('form', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->text('form');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

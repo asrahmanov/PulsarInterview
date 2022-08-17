@@ -6,11 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+
 /**
  * App\Models\Form
  *
  * @property int $id
+ * @property string $name
  * @property string $form
+ * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|Form newModelQuery()
@@ -18,8 +21,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|Form onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Form query()
  * @method static \Illuminate\Database\Eloquent\Builder|Form whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Form whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Form whereForm($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Form whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Form whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Form whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|Form withTrashed()
  * @method static \Illuminate\Database\Query\Builder|Form withoutTrashed()
@@ -40,6 +45,7 @@ class Form extends Model
 
     protected $fillable=[
         "form",
+        "name",
     ];
 
     protected $hidden=[

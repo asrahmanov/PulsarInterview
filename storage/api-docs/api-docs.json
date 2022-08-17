@@ -40,6 +40,11 @@
                                         "description": "2022-04-01",
                                         "type": "text",
                                         "example": ""
+                                    },
+                                    "name": {
+                                        "description": "Текст",
+                                        "type": "string",
+                                        "example": "Тест"
                                     }
                                 },
                                 "type": "object"
@@ -62,6 +67,11 @@
                                             "description": "2022-04-01",
                                             "type": "json",
                                             "example": ""
+                                        },
+                                        "name": {
+                                            "description": "Текст",
+                                            "type": "string",
+                                            "example": "Тест"
                                         }
                                     },
                                     "type": "object"
@@ -205,9 +215,14 @@
                                 ],
                                 "properties": {
                                     "form": {
-                                        "description": "2022-04-01",
+                                        "description": "",
                                         "type": "text",
                                         "example": ""
+                                    },
+                                    "name": {
+                                        "description": "Текст",
+                                        "type": "string",
+                                        "example": "Тест"
                                     }
                                 },
                                 "type": "object"
@@ -230,6 +245,11 @@
                                             "description": "2022-04-01",
                                             "type": "json",
                                             "example": ""
+                                        },
+                                        "name": {
+                                            "description": "Текст",
+                                            "type": "string",
+                                            "example": "Тест"
                                         }
                                     },
                                     "type": "object"

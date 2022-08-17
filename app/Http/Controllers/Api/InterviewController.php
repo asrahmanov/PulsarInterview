@@ -184,24 +184,24 @@ class InterviewController extends Controller
      */
     public function store(Request $request)
     {
-        $entity = Worksheets::whereId($request->id)->first();
-        if (!$entity) {
-            return response([], 404);
-        }
 
-        $validator = $entity->validate($request->all(), false);
+        $entity = new Worksheets();
 
+        $validator = $entity->validate($request->all());
         if ($validator->fails()) {
             return response(['errors' => $validator->errors()], 422);
         }
 
-        $entity->fill($request->only($entity->getFillable()));
+        $worksheets = Worksheets::whereId($request->id)->first();
 
-        if ($entity->save()) {
-
-            return response($entity->toArray(), 200);
+        if (isset($report)) {
+            $worksheets->fill($request->only($entity->getFillable()))->save();
+            return response(
+                Worksheets::whereId($worksheets->id)->first()->toArray(), 200);
         } else {
-            return response('anyError', 500);
+            $entity->fill($request->only($entity->getFillable()))->save();
+            return response(
+                Worksheets::whereId($entity->id)->first()->toArray(), 200);
         }
 
     }

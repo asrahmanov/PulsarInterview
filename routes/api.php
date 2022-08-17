@@ -48,7 +48,7 @@ reg_routes('interview-worksheets', \App\Http\Controllers\Api\InterviewController
 );
 
 
-reg_routes('interview-form', \App\Http\Controllers\Api\InterviewController::class,
+reg_routes('interview-form', \App\Http\Controllers\Api\FormController::class,
     $router,
     [],
     [],

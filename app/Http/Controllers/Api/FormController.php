@@ -27,10 +27,6 @@ class FormController extends Controller
     }
 
 
-
-
-
-
     /**
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
@@ -51,13 +47,11 @@ class FormController extends Controller
     public function getById($id)
     {
 
-            return Form::select()
-                ->where(['id' => $id])
-                ->get();
+        return Form::select()
+            ->where(['id' => $id])
+            ->get();
 
     }
-
-
 
 
     /**
@@ -84,6 +78,7 @@ class FormController extends Controller
      *        type="object",
      *        required={""},
      *          @OA\Property(property="form",description="2022-04-01", type="text", example=""),
+     *          @OA\Property(property="name",description="Текст", type="string", example="Тест"),
      *    )
      * ),
      *     @OA\Response(
@@ -93,6 +88,7 @@ class FormController extends Controller
      *             type="object",
      *          @OA\Property(property="id", type="number", example="1"),
      *          @OA\Property(property="form",description="2022-04-01", type="json", example=""),
+     *          @OA\Property(property="name",description="Текст", type="string", example="Тест"),
      *         )
      *      ),
      *     @OA\Response(
@@ -115,25 +111,23 @@ class FormController extends Controller
      */
     public function store(Request $request)
     {
-        $entity = Form::whereId($request->id)->first();
-        if (!$entity) {
-            return response([], 404);
-        }
 
-        $validator = $entity->validate($request->all(), false);
+       if($request->id > 0) {
 
+           $form = Form::whereId($request->id)->first();
+       } else {
+           $form = new Form();
+       }
+
+        $validator = $form->validate($request->all());
         if ($validator->fails()) {
             return response(['errors' => $validator->errors()], 422);
         }
 
-        $entity->fill($request->only($entity->getFillable()));
+        $form->fill($request->only($form->getFillable()))->save();
+        return response(
+            Form::whereId($form->id)->first()->toArray(), 200);
 
-        if ($entity->save()) {
-
-            return response($entity->toArray(), 200);
-        } else {
-            return response('anyError', 500);
-        }
 
     }
 
@@ -179,7 +173,8 @@ class FormController extends Controller
      *    @OA\JsonContent(
      *        type="object",
      *        required={""},
-     *          @OA\Property(property="form",description="2022-04-01", type="text", example=""),
+     *          @OA\Property(property="form",description="", type="text", example=""),
+     *          @OA\Property(property="name",description="Текст", type="string", example="Тест"),
      *    )
      * ),
      *     @OA\Response(
@@ -189,6 +184,7 @@ class FormController extends Controller
      *             type="object",
      *          @OA\Property(property="id", type="number", example="1"),
      *          @OA\Property(property="form",description="2022-04-01", type="json", example=""),
+     *          @OA\Property(property="name",description="Текст", type="string", example="Тест"),
      *
      *         )
      *      ),
